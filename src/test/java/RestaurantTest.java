@@ -72,4 +72,18 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>OrderValue<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void selecting_item_from_menu_should_return_order_value(){
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        restaurant.addToMenu("penne pasta", 145);
+
+        assertEquals(388,restaurant.getOrderValue("Sweet corn soup", "Vegetable lasagne"));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<OrderValue>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 }
