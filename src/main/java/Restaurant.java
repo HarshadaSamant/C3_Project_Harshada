@@ -9,7 +9,6 @@ public class Restaurant {
     public LocalTime openingTime;
     public LocalTime closingTime;
     private List<Item> menu = new ArrayList<Item>();
-    private static List<Item> items = new ArrayList<>();
 
     public Restaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
         this.name = name;
@@ -51,7 +50,15 @@ public class Restaurant {
     }
 
     public int getOrderValue(String... itemName) {
-        return 1;
+        int orderValue = 0;
+        for(Item item: menu) {
+            for(String selectedItem: itemName) {
+                if(item.getName().equals(selectedItem)) {
+                    orderValue = orderValue + item.getPrice();
+                }
+            }
+        }
+        return orderValue;
     }
 
     public void removeFromMenu(String itemName) throws itemNotFoundException {

@@ -82,7 +82,7 @@ class RestaurantTest {
         restaurant.addToMenu("Vegetable lasagne", 269);
         restaurant.addToMenu("penne pasta", 145);
 
-        assertEquals(388,restaurant.getOrderValue("Sweet corn soup", "Vegetable lasagne"));
+        assertEquals(533,restaurant.getOrderValue("Sweet corn soup", "Vegetable lasagne","penne pasta"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<OrderValue>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
